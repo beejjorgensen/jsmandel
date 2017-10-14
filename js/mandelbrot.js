@@ -1,8 +1,3 @@
-/**
- * TODO
- * requirejs
- * touchscreen support
- */
 requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
 	function (doc, es6, MandelbrotBitmap, ProgressBar) {
 
