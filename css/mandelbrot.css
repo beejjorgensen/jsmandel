@@ -88,6 +88,10 @@ html {
 	margin-top: 8px;
 }
 
+#app {
+	max-width: 1024px;
+}
+
 #zoomlevel {
 	font-size: 0.7em;
 	font-weight: bold;

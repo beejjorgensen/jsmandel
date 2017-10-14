@@ -61,8 +61,9 @@ requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
 	 * Set the canvas size
 	 */
 	function setCanvas() {
-		let sw = window.innerWidth;
-		let sh = window.innerHeight;
+		let app = document.querySelector('#app');
+		let sw = app.clientWidth;
+		let sh = app.clientHeight;
 		let mbmwidth;
 		let mbmheight;
 		
@@ -167,7 +168,6 @@ requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
 		percentBar.setPercent(event.percent);
 	}
 
-	//window.addEventListener('load', onLoad);
 	onLoad();
 	window.addEventListener('resize', onResize);
 
