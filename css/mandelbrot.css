@@ -59,6 +59,11 @@ html {
 
 #mandelbrot {
 	display: block;
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
 }
 
 #progress-bar {
