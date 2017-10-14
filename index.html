@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="mandelbrot.css">
+
+		<script src="es6.js"></script>
+		<script src="rect.js"></script>
+		<script src="eventer.js"></script>
+		<script src="adam7.js"></script>
+		<script src="progressbar.js"></script>
+		<script src="mandelbrot-bitmap.js"></script>
+		<script src="mandelbrot.js"></script>
+	</head>
+
+	<div id="nosupport" class="nodisp">
+		This browser doesn't seem to have modern JS support. Time to upgrade!
+	</div>
+
+	<div id="app" class="nodisp">
+		<canvas id="mandelbrot"></canvas>
+
+		<div id="progress-bar">
+			<div class="progress-bar-inner"></div>
+		</div>
+
+		<div class="center tm8">
+			<div id="zoomlevel" class="ilb"><span>1</span>×</div>
+		</div>
+
+		<div class="center tm8">
+			<div id="ui-buttons" class="ilb">
+				<button id="undo">Undo</button>
+				<button id="restart">Restart</button>
+			</div>
+		</div>
+	</div>
+</html>
