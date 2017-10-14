@@ -3,7 +3,9 @@
  * requirejs
  * touchscreen support
  */
-;(function () {
+requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
+	function (doc, es6, MandelbrotBitmap, ProgressBar) {
+
 	let mandelBitmap;
 
 	let viewWidth;
@@ -29,7 +31,7 @@
 	 * On Load
 	 */
 	function onLoad() {
-		if (!supportsES6()) {
+		if (!es6.supported()) {
 			document.getElementById('nosupport').className = '';
 			return;
 		}
@@ -165,8 +167,9 @@
 		percentBar.setPercent(event.percent);
 	}
 
-	window.addEventListener('load', onLoad);
+	//window.addEventListener('load', onLoad);
+	onLoad();
 	window.addEventListener('resize', onResize);
 
-}());
+});
 
