@@ -162,16 +162,16 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 			r = escapeValue * 8;
 			g = escapeValue * 9;
 			b = 0xff - escapeValue * 4;
+
+			let v = ((r&0xff)<<16) | ((g&0xff)<<8) | (b&0xff);
+			let s = v.toString(16);
+
+			// Pad leading zero as necessary
+			if (v < 0x100000) {
+				s = '0' + s;
+			}
 			
-			r = (r&0xff).toString(16);
-			g = (g&0xff).toString(16);
-			b = (b&0xff).toString(16);
-
-			if (r.length == 1) { r = "0" + r; }
-			if (g.length == 1) { g = "0" + g; }
-			if (b.length == 1) { b = "0" + b; }
-
-			return '#' + r + g + b;
+			return '#' + s;
 		}
 
 		/**
