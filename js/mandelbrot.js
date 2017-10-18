@@ -1,5 +1,5 @@
-requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
-	function (doc, es6, MandelbrotBitmap, ProgressBar) {
+define(['mandelbrot-bitmap', 'progressbar'],
+	function (MandelbrotBitmap, ProgressBar) {
 
 	let mandelBitmap;
 
@@ -23,14 +23,9 @@ requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
 	let canvas;
 
 	/**
-	 * On Load
+	 * Start it up
 	 */
-	function onLoad() {
-		if (!es6.supported()) {
-			document.getElementById('nosupport').className = '';
-			return;
-		}
-
+	function start() {
 		document.querySelector('#app').classList.remove('nodisp');
 
 		started = false; // set to true when user begins work
@@ -163,8 +158,12 @@ requirejs(['domReady!', 'es6', 'mandelbrot-bitmap', 'progressbar'],
 		percentBar.setPercent(event.percent);
 	}
 
-	onLoad();
 	window.addEventListener('resize', onResize);
+
+	// Exports
+	return {
+		start: start
+	};
 
 });
 

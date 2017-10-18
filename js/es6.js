@@ -1,17 +1,27 @@
 /**
- * Hackishly test for general ES6 support
- * 
- * https://gist.github.com/bendc/d7f3dbc83d0f65ca0433caf90378cd95
+ * Detect features we need
  */
 define(function() {
 	return {
 		supported: function () {
+			var featuresOK = true;
+
 			try {
-				new Function("(a = 0) => a");
-				return true;
-			} catch (err) {
-				return false;
+				// class
+				eval('"use strict"; class Foo { }');
+
+				// let
+				eval('"use strict"; let x = 2');
+
+				// Canvas
+				var elem = document.createElement('canvas');
+				var ok = !!(elem.getContext && elem.getContext('2d'));
+				if (!ok) { featuresOK = false; }
+			} catch(e) {
+				featuresOK = false;
 			}
+
+			return featuresOK;
 		}
-	}
+	};
 });
