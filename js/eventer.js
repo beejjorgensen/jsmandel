@@ -1,4 +1,4 @@
-define(function () {
+define('eventer', function () {
 	/**
 	 * Event methods for arbitrary objects
 	 * 
@@ -11,8 +11,8 @@ define(function () {
 	 * }
 	 * 
 	 * let f = new Foo();
-	 * f.addEventListener("goats", goatsDetected);
-	 * f.dispatchEvent(Eventer.createEvent("goats"));
+	 * f.addEventListener('goats', goatsDetected);
+	 * f.dispatchEvent(Eventer.createEvent('goats'));
 	 * 
 	 * // Mixin: (also adds _eventer_listeners property to f)
 	 * 
@@ -20,8 +20,8 @@ define(function () {
 	 * 
 	 * let f = new Foo();
 	 * Eventer.mixin(f);
-	 * f.addEventListener("goats", goatsDetected);
-	 * f.dispatchEvent(Eventer.createEvent("goats", {count:12}));
+	 * f.addEventListener('goats', goatsDetected);
+	 * f.dispatchEvent(Eventer.createEvent('goats', {count:12}));
 	 */
 	class Eventer {
 		constructor() {
@@ -93,7 +93,7 @@ define(function () {
 
 			// Call all callbacks
 			for (let f of this._eventer_listeners[event.type]) {
-				// In the callback, "this" should be set to the event
+				// In the callback, 'this' should be set to the event
 				// dispatcher
 				f.call(this, event);
 			}
@@ -126,10 +126,10 @@ define(function () {
 			let n = new Eventer();
 
 			let props = [
-				"_eventer_listeners",
-				"addEventListener",
-				"removeEventListener",
-				"dispatchEvent"
+				'_eventer_listeners',
+				'addEventListener',
+				'removeEventListener',
+				'dispatchEvent'
 			];
 
 			for (let p of props) {

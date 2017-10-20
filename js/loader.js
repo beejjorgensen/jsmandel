@@ -1,5 +1,4 @@
-requirejs(['domReady!', 'es6'],
-	function (doc, es6) {
+require(['domReady!', 'es6'], function (doc, es6) {
 	
 	/**
 	 * On Load
@@ -10,7 +9,7 @@ requirejs(['domReady!', 'es6'],
 			return;
 		}
 
-		requirejs(['mandelbrot'], function (mandelbrot) {
+		require(['mandelbrot'], function (mandelbrot) {
 			mandelbrot.start();
 		});
 	}

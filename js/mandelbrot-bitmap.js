@@ -1,4 +1,4 @@
-define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
+define('mandelbrot-bitmap', ['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 
 	class MandelbrotBitmap extends Eventer {
 		/**
@@ -43,7 +43,7 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 			this.cwidth = x2 - x1;
 			this.cheight = y1 - y2;
 
-			//console.log("START RENDER");
+			//console.log('START RENDER');
 			this.renderStartTime = Date.now();
 
 			this.adam7.reset();
@@ -69,7 +69,7 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 		 * exceeds this.computeEndTime, or until the image is completely
 		 * rendered.
 		 */
-		enterFrame(timestamp) {
+		enterFrame(/*timestamp*/) {
 			let count = 0;
 			let escapeValue;
 			let colorValue;
@@ -92,7 +92,7 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 				// check to see if we've timed-out every row
 				if (++count > this.bitmapWidth) {
 					if (Date.now() - startTime > this.computeTimeMS) {
-						this.dispatchEvent(Eventer.createEvent("progress", {
+						this.dispatchEvent(Eventer.createEvent('progress', {
 							percent: 100 * this.pixelsRendered / this.pixelsTotal
 						}));
 						this.animFrameReq = requestAnimationFrame(this.enterFrame.bind(this));
@@ -102,11 +102,11 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 				}
 			}
 
-			//console.log("END RENDER: " + this.pixelsRendered + " pixels in " + ((Date.now() - this.renderStartTime)/1000.0) + " seconds");
-			this.dispatchEvent(Eventer.createEvent("progress", {
+			//console.log('END RENDER: ' + this.pixelsRendered + ' pixels in ' + ((Date.now() - this.renderStartTime)/1000.0) + ' seconds');
+			this.dispatchEvent(Eventer.createEvent('progress', {
 				percent: 100
 			}));
-			this.dispatchEvent(Eventer.createEvent("complete"));
+			this.dispatchEvent(Eventer.createEvent('complete'));
 		}
 
 		/**
@@ -148,7 +148,7 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 
 		/**
 		 * Takes an escape number and maps it to a color. This sets the
-		 * "palette" for the result.
+		 * 'palette' for the result.
 		 *
 		 * @return a packed RGB color in web format
 		 */
@@ -156,7 +156,7 @@ define(['eventer', 'adam7', 'rect'], function (Eventer, Adam7, Rect) {
 			let r, g, b;
 
 			if (escapeValue < 0) {
-				return "black"; // no escape
+				return 'black'; // no escape
 			}
 			
 			r = escapeValue * 8;

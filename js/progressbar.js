@@ -1,4 +1,4 @@
-define(function () {
+define('progressbar', function () {
 	class ProgressBar {
 		constructor(peer, percent=0) {
 			this.peer = peer;

@@ -1,5 +1,4 @@
-define(['mandelbrot-bitmap', 'progressbar'],
-	function (MandelbrotBitmap, ProgressBar) {
+define('mandelbrot', ['mandelbrot-bitmap', 'progressbar'], function (MandelbrotBitmap, ProgressBar) {
 
 	let mandelBitmap;
 
@@ -53,7 +52,7 @@ define(['mandelbrot-bitmap', 'progressbar'],
 	function setCanvas() {
 		let app = document.querySelector('#app');
 		let sw = app.clientWidth;
-		let sh = app.clientHeight;
+		//let sh = app.clientHeight;
 		let mbmwidth;
 		let mbmheight;
 		
@@ -66,14 +65,14 @@ define(['mandelbrot-bitmap', 'progressbar'],
 		mandelBitmap = new MandelbrotBitmap(canvas, mbmwidth, mbmheight);
 
 		// Percent bar
-		percentBar = new ProgressBar(document.querySelector("#progress-bar"));
-		mandelBitmap.addEventListener("progress", bitmapProgress);
+		percentBar = new ProgressBar(document.querySelector('#progress-bar'));
+		mandelBitmap.addEventListener('progress', bitmapProgress);
 	}
 
 	/**
 	 * Handle the restart command
 	 */
-	function restartClicked(event) {
+	function restartClicked() {
 		started = true;
 
 		curCR = -0.5;

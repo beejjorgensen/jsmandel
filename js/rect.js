@@ -1,4 +1,4 @@
-define(function () {
+define('rect', function () {
 	class Rect {
 		constructor(x, y, width, height) {
 			this.x = x;
