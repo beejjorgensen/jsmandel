@@ -21,5 +21,4 @@ Builds go in `build/{dist,debug}`.
 
 ## TODO
 
-* Minify CSS
 * Watchify

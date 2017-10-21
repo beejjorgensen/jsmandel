@@ -5,9 +5,9 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 //var watchify = require('watchify');
 var uglify = require('gulp-uglify');
-//var babel = require('babelify');
+var cleanCSS = require('gulp-clean-css');
 
-function build_dist() {
+function js_dist() {
 
 	var b = browserify({
 		entries: './src/js/mandelbrot.js',
@@ -23,7 +23,7 @@ function build_dist() {
 		.pipe(gulp.dest('./build/dist'));
 }
 
-function build_debug() {
+function js_debug() {
 
 	var b = browserify({
 		entries: './src/js/mandelbrot.js',
@@ -39,22 +39,38 @@ function build_debug() {
 		.pipe(gulp.dest('./build/debug'));
 }
 
+function css_dist() {
+	return gulp.src('./src/css/*.css')
+		.pipe(cleanCSS())
+		.pipe(gulp.dest('./build/dist'));
+
+}
+
+function css_debug() {
+	return gulp.src('./src/css/*.css')
+		.pipe(gulp.dest('./build/debug'));
+
+}
+
 function cp_files_dist() {
-	return gulp.src(['./src/*.html','./src/css/*.css'])
+	return gulp.src(['./src/*.html'])
 		.pipe(gulp.dest('./build/dist'));
 }
 
 function cp_files_debug() {
-	return gulp.src(['./src/*.html','./src/css/*.css'])
+	return gulp.src(['./src/*.html'])
 		.pipe(gulp.dest('./build/debug'));
 }
 
 gulp.task('cp_files_dist', cp_files_dist);
 gulp.task('cp_files_debug', cp_files_debug);
 
-gulp.task('build_dist', build_dist);
-gulp.task('build_debug', build_debug);
+gulp.task('css_dist', css_dist);
+gulp.task('css_debug', css_debug);
 
-gulp.task('dist', ['build_dist', 'cp_files_dist']);
-gulp.task('default', ['build_debug', 'cp_files_debug']);
+gulp.task('js_dist', js_dist);
+gulp.task('js_debug', js_debug);
+
+gulp.task('dist', ['js_dist', 'css_dist', 'cp_files_dist']);
+gulp.task('default', ['js_debug', 'css_debug', 'cp_files_debug']);
 
