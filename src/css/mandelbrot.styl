@@ -1,3 +1,5 @@
+@import 'nib'
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -49,59 +51,50 @@ table {
 
 /* ----------------------------------------------- */
 
-html {
-	font-family: sans-serif;
-}
+html
+	font-family sans-serif
 
-.nodisp {
-	display: none;
-}
+body
+	background: linear-gradient(top, white, black);
 
-#mandelbrot {
-	display: block;
-	cursor: pointer;
-}
+.nodisp
+	display none
 
-button {
-	cursor: pointer;
-}
+#mandelbrot
+	display block
+	cursor pointer
 
-#progress-bar {
-	width: 100%;
-	height: 2px;
-	background-color: white;
-	position: relative;
-}
+button
+	cursor pointer
 
-#progress-bar > .progress-bar-inner {
-	background-color: blue;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
+#progress-bar
+	width 100%
+	height 2px
+	background-color white
+	position relative
 
-.center {
-	text-align: center;
-}
+#progress-bar > .progress-bar-inner
+	background-color blue
+	height 100%
+	position absolute
+	top 0
+	left 0
 
-.ilb {
-	display: inline-block;
-}
+.center 
+	text-align center
 
-.tm8 {
-	margin-top: 8px;
-}
+.ilb 
+	display inline-block
 
-#app {
-	max-width: 1024px;
-}
+.tm8 
+	margin-top 8px
 
-#zoomlevel {
-	font-size: 0.7em;
-	font-weight: bold;
-}
+#app 
+	max-width 1024px
 
-#nosupport {
-	margin-top: 5ex;
-}
+#zoomlevel 
+	font-size 0.7em
+	font-weight bold
+
+#nosupport 
+	margin-top 5ex

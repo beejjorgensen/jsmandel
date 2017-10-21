@@ -5,9 +5,11 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 //var watchify = require('watchify');
 var uglify = require('gulp-uglify');
+var stylus = require('gulp-stylus');
 var cleanCSS = require('gulp-clean-css');
+var nib = require('nib');
 
-function js_dist() {
+function build_dist() {
 
 	var b = browserify({
 		entries: './src/js/mandelbrot.js',
@@ -23,7 +25,7 @@ function js_dist() {
 		.pipe(gulp.dest('./build/dist'));
 }
 
-function js_debug() {
+function build_debug() {
 
 	var b = browserify({
 		entries: './src/js/mandelbrot.js',
@@ -40,14 +42,16 @@ function js_debug() {
 }
 
 function css_dist() {
-	return gulp.src('./src/css/*.css')
+	return gulp.src('./src/css/*.{css,styl}')
+		.pipe(stylus({use: nib()}))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('./build/dist'));
 
 }
 
 function css_debug() {
-	return gulp.src('./src/css/*.css')
+	return gulp.src('./src/css/*.{css,styl}')
+		.pipe(stylus({use: nib()}))
 		.pipe(gulp.dest('./build/debug'));
 
 }
@@ -68,9 +72,9 @@ gulp.task('cp_files_debug', cp_files_debug);
 gulp.task('css_dist', css_dist);
 gulp.task('css_debug', css_debug);
 
-gulp.task('js_dist', js_dist);
-gulp.task('js_debug', js_debug);
+gulp.task('build_dist', build_dist);
+gulp.task('build_debug', build_debug);
 
-gulp.task('dist', ['js_dist', 'css_dist', 'cp_files_dist']);
-gulp.task('default', ['js_debug', 'css_debug', 'cp_files_debug']);
+gulp.task('dist', ['build_dist', 'css_dist', 'cp_files_dist']);
+gulp.task('default', ['build_debug', 'css_debug', 'cp_files_debug']);
 

@@ -11,7 +11,9 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.0",
     "gulp-sourcemaps": "^2.6.1",
+    "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^3.0.0",
+    "nib": "^1.1.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
