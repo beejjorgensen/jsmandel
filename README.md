@@ -13,8 +13,8 @@ source maps. If not, use a debug build (which runs through Browserify
 and Babel, but not Uglify), and make the best of it.
 
     $ npm install gulp -g
-	$ npm install
-	$ gulp       # debug build, or...
+    $ npm install
+    $ gulp       # debug build, or...
     $ gulp dist  # distribution build
 
 Builds go in `build/{dist,debug}`.
