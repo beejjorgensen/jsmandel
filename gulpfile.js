@@ -5,7 +5,7 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 //var watchify = require('watchify');
 var uglify = require('gulp-uglify');
-var babel = require('babelify');
+//var babel = require('babelify');
 
 function build_dist() {
 
@@ -14,7 +14,7 @@ function build_dist() {
 		debug: true
 	});
 
-	return b.transform("babelify",{presets: ["es2015"]}).bundle()
+	return b.transform('babelify',{presets: ['es2015']}).bundle()
 		.pipe(source('bundle.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
@@ -30,7 +30,7 @@ function build_debug() {
 		debug: true
 	});
 
-	return b.transform("babelify",{presets: ["es2015"]}).bundle()
+	return b.transform('babelify',{presets: ['es2015']}).bundle()
 		.pipe(source('bundle.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
