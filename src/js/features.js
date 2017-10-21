@@ -4,12 +4,6 @@ module.exports = function () {
 			var featuresOK = true;
 
 			try {
-				// class
-				eval('"use strict"; class Foo { }');
-
-				// let
-				eval('"use strict"; let x = 2');
-
 				// Canvas
 				var elem = document.createElement('canvas');
 				var ok = !!(elem.getContext && elem.getContext('2d'));
