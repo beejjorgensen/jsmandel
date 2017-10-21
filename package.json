@@ -1,8 +1,9 @@
 {
   "name": "jsmandel",
   "version": "1.0.0",
-  "description": "This was originally written in ActionScript for my blog, but since those days are long gone, I finally ported it to JS.",
-  "main": "index.js",
+  "description": "Mandelbrot set explorer in JavaScript",
+  "private": true,
+  "main": "",
   "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
