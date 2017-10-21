@@ -1,7 +1,4 @@
-/**
- * Detect features we need
- */
-define(function() {
+module.exports = function () {
 	return {
 		supported: function () {
 			var featuresOK = true;
@@ -24,4 +21,4 @@ define(function() {
 			return featuresOK;
 		}
 	};
-});
+};
