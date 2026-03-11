@@ -22,7 +22,7 @@
  * f.addEventListener('goats', goatsDetected);
  * f.dispatchEvent(Eventer.createEvent('goats', {count:12}));
  */
-module.exports = class Eventer {
+export default class Eventer {
 	constructor() {
 		this._eventer_listeners = {};
 	}

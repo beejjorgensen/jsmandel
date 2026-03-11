@@ -1,4 +1,4 @@
-module.exports = class ProgressBar {
+export default class ProgressBar {
 	constructor(peer, percent=0) {
 		this.peer = peer;
 		this.inner = peer.querySelector('.progress-bar-inner');

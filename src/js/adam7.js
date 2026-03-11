@@ -1,4 +1,4 @@
-module.exports = class Adam7 {
+export default class Adam7 {
 	/**
 	 * Constructor
 	 */

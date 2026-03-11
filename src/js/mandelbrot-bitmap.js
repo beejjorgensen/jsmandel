@@ -1,8 +1,8 @@
-const Eventer = require('./eventer');
-const Adam7 = require('./adam7');
-const Rect = require('./rect');
+import Eventer from './eventer.js';
+import Adam7 from './adam7.js';
+import Rect from './rect.js';
 
-module.exports = class MandelbrotBitmap extends Eventer {
+export default class MandelbrotBitmap extends Eventer {
 	/**
 	 * Constructor
 	 */
@@ -191,4 +191,4 @@ module.exports = class MandelbrotBitmap extends Eventer {
 	bitmapToComplexImaginary(y) {
 		return this.y1 - this.cheight * y / this.bitmapHeight;
 	}
-};
+}

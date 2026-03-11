@@ -1,6 +1,6 @@
-const MandelbrotBitmap = require('./mandelbrot-bitmap');
-const ProgressBar = require('./progressbar');
-const featuresSupported = require('./features');
+import MandelbrotBitmap from './mandelbrot-bitmap.js';
+import ProgressBar from './progressbar.js';
+import featuresSupported from './features.js';
 
 let mandelBitmap;
 
