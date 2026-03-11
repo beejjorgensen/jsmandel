@@ -48,6 +48,10 @@ export default class MandelbrotBitmap extends Eventer {
 		//console.log('START RENDER');
 		this.renderStartTime = Date.now();
 
+        const pixelSize = this.cwidth / this.bitmapWidth;;
+        this.maxIterations = Math.floor(100 + 50 * Math.log2(1.0 / pixelSize)); // 200 + 80 is higher quality
+        console.log(this.maxIterations, pixelSize, this.cwidth, this.bitmapWidth);
+
 		this.adam7.reset();
 		this.pixelsRendered = 0;
 
