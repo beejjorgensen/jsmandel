@@ -50,7 +50,6 @@ export default class MandelbrotBitmap extends Eventer {
 
         const pixelSize = this.cwidth / this.bitmapWidth;;
         this.maxIterations = Math.floor(100 + 50 * Math.log2(1.0 / pixelSize)); // 200 + 80 is higher quality
-        console.log(this.maxIterations, pixelSize, this.cwidth, this.bitmapWidth);
 
 		this.adam7.reset();
 		this.pixelsRendered = 0;
@@ -170,14 +169,8 @@ export default class MandelbrotBitmap extends Eventer {
 		b = 0xff - escapeValue * 4;
 
 		let v = ((r&0xff)<<16) | ((g&0xff)<<8) | (b&0xff);
-		let s = v.toString(16);
 
-		// Pad leading zero as necessary
-		if (v < 0x100000) {
-			s = '0' + s;
-		}
-		
-		return '#' + s;
+		return '#' + v.toString(16).padStart(6, '0');
 	}
 
 	/**
